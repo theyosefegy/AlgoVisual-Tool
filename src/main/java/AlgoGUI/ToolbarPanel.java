@@ -15,7 +15,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class ToolbarPanel extends JPanel {
-    public ToolbarPanel() {
+    VisualArrayPanel visualpanel;
+    
+    public ToolbarPanel(VisualArrayPanel visualpanel) {
+        this.visualpanel = visualpanel;
+        
         // Set the layout for the toolbar (FlowLayout arranges components in a row)
         setLayout(new FlowLayout(FlowLayout.CENTER)); // Align buttons to the left
 
@@ -53,8 +57,9 @@ public class ToolbarPanel extends JPanel {
         bubbleSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Placeholder action for bubble sort button
-                System.out.println("Bubble Sort button clicked");
+                if (visualpanel != null) {
+                    visualpanel.runSort("bubble");
+                }
             }
         });
     }
