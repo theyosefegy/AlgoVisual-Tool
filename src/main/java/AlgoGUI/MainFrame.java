@@ -15,7 +15,6 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null);
         setBackground(Color.pink);
         
-        toolbarPanel = new ToolbarPanel();
         
         JPanel mainwindow = new JPanel();
         mainwindow.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));  // FlowLayout with center alignment
@@ -26,6 +25,9 @@ public class MainFrame extends JFrame {
         VisualArrayPanel arrPanel = new VisualArrayPanel(arr);
         arrPanel.setPreferredSize(new Dimension(getWidth() / 2, getHeight() - getHeight()/3));
         
+        toolbarPanel = new ToolbarPanel(arrPanel);
+
+        
         arrPanel.setBackground(Color.PINK);
         mainwindow.setBackground(Color.PINK);
         
@@ -33,4 +35,5 @@ public class MainFrame extends JFrame {
         add(mainwindow, BorderLayout.CENTER);
         add(toolbarPanel, BorderLayout.SOUTH);
     }
+    
 }

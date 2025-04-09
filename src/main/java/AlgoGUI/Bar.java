@@ -8,7 +8,7 @@ public class Bar extends JPanel {
     public float value;
     public int width = 40;
 
-    private JPanel innerBar; // دي الحته الملنه من البار فعلا
+    private JPanel innerBar; // دي الحته الملونه من البار فعلا
     private JLabel valueLabel;
     private JLabel indexLabel ; 
     
@@ -55,6 +55,9 @@ public class Bar extends JPanel {
         this.value = newValue;
         int heightPercent = (int)((value / (float) maxValue) * 100);
         innerBar.setPreferredSize(new Dimension(width, heightPercent * 3));
+        
+        valueLabel.setText(String.valueOf(newValue));
+
         revalidate(); // update layout
         repaint();    // redraw
     }
