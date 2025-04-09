@@ -1,39 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package AlgoGUI;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-
-/**
- *
- * @author DELL
- */
 
 public class MainFrame extends JFrame {
     private JPanel toolbarPanel;
 
-    
-    
     public MainFrame() {
-        setTitle("VisuAlgorithm: Main Window");
-        setSize(1025, 700);
+        setTitle("VisuAlgo");
+        setSize(1045, 700);
         setVisible(true);
         setLayout(new BorderLayout());
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setBackground(Color.pink);
         
         toolbarPanel = new ToolbarPanel();
-        JPanel mainwindow = new JPanel(new BorderLayout());
         
-        VisualArrayPanel ArrayPanel = new VisualArrayPanel();
-        visualArrayPanel.setOpaque(false);
+        JPanel mainwindow = new JPanel();
+        mainwindow.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));  // FlowLayout with center alignment
 
-        mainwindow.add(visualArrayPanel, BorderLayout.CENTER);
-        mainwindow.setBackground(Color.pink);
-
-
+        // array used for visualization 
+        int[] arr = {5, 34, 45, 7, 12, 45, 20, 8, 10, 12};
+        
+        VisualArrayPanel arrPanel = new VisualArrayPanel(arr);
+        arrPanel.setPreferredSize(new Dimension(getWidth() / 2, getHeight() - getHeight()/3));
+        
+        arrPanel.setBackground(Color.PINK);
+        mainwindow.setBackground(Color.PINK);
+        
+        mainwindow.add(arrPanel, BorderLayout.SOUTH);        
         add(mainwindow, BorderLayout.CENTER);
         add(toolbarPanel, BorderLayout.SOUTH);
     }

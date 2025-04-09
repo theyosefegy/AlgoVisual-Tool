@@ -1,18 +1,61 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package AlgoGUI;
 
-import java.awt.Dimension;
+import java.awt.*;
 import javax.swing.*;
 
-/**
- *
- * @author DELL
- */
 public class Bar extends JPanel {
-    public Bar(int value, int maxValue) {
-        setPreferredSize(new Dimension(40, 300));
+    public int index;
+    public float value;
+    public int width = 40;
+
+    private JPanel innerBar; // دي الحته الملنه من البار فعلا
+    private JLabel valueLabel;
+    private JLabel indexLabel ; 
+    
+
+    public Bar(int value, int maxValue, int index) {
+        this.value = value;
+        this.index = index;
+
+        setPreferredSize(new Dimension(width, 300));
+        setBackground(Color.PINK);
+        setLayout(new BorderLayout());
+
+        innerBar = new JPanel();
+
+        int heightPercent = (int)((value / (float) maxValue) * 100);
+        innerBar.setPreferredSize(new Dimension(width, heightPercent * 3));
+        innerBar.setLayout(new BorderLayout());
+        innerBar.setBackground(Color.WHITE); 
+
+        add(innerBar, BorderLayout.SOUTH);
+        
+        
+        ////////////////////////////////////////////////////////////////
+        valueLabel = new JLabel(String.valueOf((int)value), JLabel.CENTER);
+        valueLabel.setForeground(Color.BLACK);  
+        valueLabel.setFont(new Font("Monospaced", Font.BOLD, 13));
+        ////////////////////////////////////////////////////////////////
+        indexLabel = new JLabel(String.valueOf(index), JLabel.CENTER);
+        indexLabel.setForeground(Color.BLACK);  
+        indexLabel.setFont(new Font("Monospaced", Font.PLAIN, 13));
+
+        innerBar.add(valueLabel, BorderLayout.CENTER);
+        innerBar.add(indexLabel, BorderLayout.SOUTH); // Place the index below the bar
+
+    }
+
+    public void setColor(Color color) {
+        innerBar.setBackground(color);
+        repaint();
+    }
+
+    public void setValue(int newValue, int maxValue) {
+        // the maxValue could change too, since users may add a new element into the array.
+        this.value = newValue;
+        int heightPercent = (int)((value / (float) maxValue) * 100);
+        innerBar.setPreferredSize(new Dimension(width, heightPercent * 3));
+        revalidate(); // update layout
+        repaint();    // redraw
     }
 }
