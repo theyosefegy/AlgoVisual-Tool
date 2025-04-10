@@ -44,7 +44,7 @@ public class VisualArrayPanel extends JPanel {
     
     public void resetArray() {
         for (int i = 0; i < bars.length; i++) {
-            bars[i].setValue(originalArr[i], 100); // Restore original values
+            bars[i].setValue(originalArr[i], bars[i].maxValue); // Restore original values
             bars[i].setColor(Color.WHITE); // Set color back to default
         }
     }

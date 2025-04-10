@@ -6,6 +6,7 @@ import javax.swing.*;
 public class Bar extends JPanel {
     public int index;
     public int value;
+    public int maxValue;
     public int width = 60;
     public Color color;
 
@@ -15,6 +16,7 @@ public class Bar extends JPanel {
     
 
     public Bar(int value, int maxValue, int index) {
+        this.maxValue = maxValue;
         this.value = value;
         this.index = index;
 
