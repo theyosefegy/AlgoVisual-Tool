@@ -2,6 +2,7 @@ AlgoGUI\ToolbarPanel$3.class
 AlgoGUI\Bar.class
 AlgoGUI\ToolbarPanel$2.class
 com\mycompany\algorithms\Algorithms.class
+AlgoGUI\ToolbarPanel$4.class
 com\mycompany\algorithms\AlgorithmFactory.class
 AlgoGUI\MainFrame.class
 com\mycompany\algorithms\BubbleSort.class

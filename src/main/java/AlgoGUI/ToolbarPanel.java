@@ -25,10 +25,12 @@ public class ToolbarPanel extends JPanel {
         JButton selectionSortButton = createButton("Selection Sort");
         JButton insertionSortButton = createButton("Insertion Sort");
         JButton bubbleSortButton = createButton("Bubble Sort");
+        JButton resetButton = createButton("Reset");
 
         add(selectionSortButton);
         add(insertionSortButton);
         add(bubbleSortButton);
+        add(resetButton);
 
         selectionSortButton.addActionListener(new ActionListener() {
             @Override
@@ -53,6 +55,15 @@ public class ToolbarPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 if (visualpanel != null) {
                     visualpanel.runAlgorithm("bubblesort");
+                }
+            }
+        });
+        
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (visualpanel != null) {
+                    visualpanel.resetArray();
                 }
             }
         });

@@ -10,12 +10,14 @@ import javax.swing.*;
 
 
 public class VisualArrayPanel extends JPanel {
+    int[] originalArr;
     Bar[] bars;
     SortAlgorithm sortingAlgorithm;
     
     public VisualArrayPanel(int [] arr) {
         setLayout(new GridLayout(1, arr.length, 20, 0));
         setBackground(Color.PINK);
+        originalArr = arr;
         
         int max = Arrays.stream(arr).max().orElse(1);
         
@@ -38,6 +40,13 @@ public class VisualArrayPanel extends JPanel {
             }
         }
         return max;
+    }
+    
+    public void resetArray() {
+        for (int i = 0; i < bars.length; i++) {
+            bars[i].setValue(originalArr[i], 100); // Restore original values
+            bars[i].setColor(Color.WHITE); // Set color back to default
+        }
     }
     
     public void runAlgorithm(String algorithm) {
