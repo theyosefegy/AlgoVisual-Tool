@@ -5,8 +5,9 @@ import javax.swing.*;
 
 public class Bar extends JPanel {
     public int index;
-    public float value;
+    public int value;
     public int width = 60;
+    public Color color;
 
     private JPanel innerBar; // دي الحته الملونه من البار فعلا
     private JLabel valueLabel;
@@ -47,8 +48,13 @@ public class Bar extends JPanel {
 
     public void setColor(Color color) {
         innerBar.setBackground(color);
+        this.color = color;
         repaint();
         validate();
+    }
+    
+    public Color getColor(){
+        return this.color;
     }
 
     public void setValue(int newValue, int maxValue) {
