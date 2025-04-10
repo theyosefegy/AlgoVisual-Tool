@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package AlgoGUI;
 
 import java.awt.Color;
@@ -20,37 +17,34 @@ public class ToolbarPanel extends JPanel {
     public ToolbarPanel(VisualArrayPanel visualpanel) {
         this.visualpanel = visualpanel;
         
-        // Set the layout for the toolbar (FlowLayout arranges components in a row)
         setLayout(new FlowLayout(FlowLayout.CENTER)); // Align buttons to the left
 
-        // Set the background color and border of the toolbar
         setBackground(Color.DARK_GRAY);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        // Create buttons for sorting algorithms
         JButton selectionSortButton = createButton("Selection Sort");
         JButton insertionSortButton = createButton("Insertion Sort");
         JButton bubbleSortButton = createButton("Bubble Sort");
 
-        // Add buttons to the toolbar
         add(selectionSortButton);
         add(insertionSortButton);
         add(bubbleSortButton);
 
-        // Add action listeners for button clicks
         selectionSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Placeholder action for selection sort button
-                System.out.println("Selection Sort button clicked");
+                if (visualpanel != null) {
+                    visualpanel.runAlgorithm("selectionsort");
+                }
             }
         });
 
         insertionSortButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Placeholder action for insertion sort button
-                System.out.println("Insertion Sort button clicked");
+               if (visualpanel != null) {
+                    visualpanel.runAlgorithm("insertionsort");
+                }
             }
         });
 
@@ -58,7 +52,7 @@ public class ToolbarPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (visualpanel != null) {
-                    visualpanel.runSort("bubble");
+                    visualpanel.runAlgorithm("bubblesort");
                 }
             }
         });

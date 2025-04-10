@@ -2,7 +2,8 @@
 
 package AlgoGUI;
 
-import com.mycompany.algorithms.*;
+import com.mycompany.algorithms.AlgorithmFactory;
+import com.mycompany.algorithms.SortAlgorithm;
 import java.awt.*;
 import java.util.Arrays;
 import javax.swing.*;
@@ -39,9 +40,9 @@ public class VisualArrayPanel extends JPanel {
         return max;
     }
     
-    public void runSort(String type) {
+    public void runAlgorithm(String algorithm) {
         new Thread(()-> {
-            sortingAlgorithm = SortingFactory.createSortingAlgorithm(type);
+            sortingAlgorithm = AlgorithmFactory.createAlgorithmInstance(algorithm);
             sortingAlgorithm.sort(bars, getMaxValue());
         }).start();
     }

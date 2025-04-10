@@ -20,10 +20,10 @@ public class MainFrame extends JFrame {
         mainwindow.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));  // FlowLayout with center alignment
 
         // array used for visualization 
-        int[] arr = {5, 34, 45, 7, 12, 45, 20, 8, 10, 12};
+        int[] arr = Utils.generateRandomArr(9, 100);
         
         VisualArrayPanel arrPanel = new VisualArrayPanel(arr);
-        arrPanel.setPreferredSize(new Dimension(getWidth() / 2, getHeight() - getHeight()/3));
+        arrPanel.setPreferredSize(new Dimension(getWidth() - getWidth() / 3, getHeight() - getHeight()/3));
         
         toolbarPanel = new ToolbarPanel(arrPanel);
 
